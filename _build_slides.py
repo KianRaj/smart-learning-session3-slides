@@ -210,18 +210,27 @@ def viz_wireframe():
         s += f'<rect x="{cx+12}" y="{y+180}" width="60" height="9" rx="3" fill="#DfDbd0"/>'
         s += f'<rect x="{cx+12}" y="{y+196}" width="108" height="7" rx="3" fill="#EEEAE0"/>'
         s += f'<rect x="{cx+12}" y="{y+208}" width="96" height="7" rx="3" fill="#EEEAE0"/>'
-    # callouts
-    def call(tx, ty, txt, lx, ly):
-        return (f'<line x1="{lx}" y1="{ly}" x2="{tx}" y2="{ty}" stroke="{PUR}" stroke-width="1.2"/>'
-                f'<circle cx="{lx}" cy="{ly}" r="3" fill="{PUR}"/>'
-                f'<text x="{tx}" y="{ty}" font-size="11.5" fill="{PUR}" class="mono">{txt}</text>')
-    s += call(548, 42, "nav", x+w-40, y+41)
-    s += call(548, 92, "headline", x+150, y+72)
-    s += call(548, 128, "call-to-action", x+60, y+140)
-    s += call(548, 176, "image", ix+iw, iy+20)
-    s += call(548, 226, "cards", x+w-40, y+204)
-    svg = f'<svg viewBox="0 0 600 290">{s}</svg>'
-    return viz(svg, "A wireframe is the skeleton — where things go, before any colour. Name each block, then design it.")
+    # numbered badges pinned to each block (explained in the list beside the viz)
+    def badge(n, bx, by):
+        return (f'<circle cx="{bx}" cy="{by}" r="13" fill="{PUR}"/>'
+                f'<text x="{bx}" y="{by+4.5}" text-anchor="middle" font-size="13" '
+                f'font-weight="700" fill="#fff">{n}</text>')
+    s += badge(1, x+w-36, y+41)      # nav
+    s += badge(2, x+150, y+72)       # headline
+    s += badge(3, x+60, y+140)       # call-to-action
+    s += badge(4, ix+iw-18, iy+18)   # image
+    s += badge(5, x+w-36, y+204)     # cards
+    svg = f'<svg viewBox="0 0 590 290">{s}</svg>'
+    return viz(svg, "A wireframe is the skeleton — where things go, before any colour.")
+
+def wireframe_legend():
+    return rows([
+        ("1 · nav", "logo + links — how users move around; keep it on every screen"),
+        ("2 · headline", "one sentence that says what the page is; biggest text on screen"),
+        ("3 · CTA", "the call-to-action button — the ONE thing you want the user to do"),
+        ("4 · image", "the dashed box = an image placeholder; content comes later"),
+        ("5 · cards", "repeating blocks for features, products or options"),
+    ])
 
 def viz_prototype():
     s = _defs()
@@ -417,12 +426,36 @@ SLIDES = [
     viz_fidelity(),
     muted("Wireframe = where things go · Mockup = how it looks · Prototype = how it behaves."),
   ),
+  # — inside figma: steps 1-2 (real UI)
+  slide(
+    eyebrow("Figma · inside the tool"),
+    h2("Step by step — frame, then wireframe"),
+    two(
+      shot("figma_step1_frame.jpg", "figma.com → new design file",
+           "STEP 1 · press F (Frame tool) and pick a screen size — that frame IS your screen."),
+      shot("figma_step2_layout.jpg", "figma.com → canvas + layers",
+           "STEP 2 · block out the wireframe inside the frame — boxes, text, buttons. Layers list on the left."),
+    ),
+    muted("Real screens from Figma (source: Figma Help Center) — style it into a mockup once the blocks feel right."),
+  ),
+  # — inside figma: steps 3-4 (real UI)
+  slide(
+    eyebrow("Figma · inside the tool"),
+    h2("Step by step — make it clickable"),
+    two(
+      shot("figma_step3_connect.jpg", "figma.com → Prototype mode",
+           "STEP 3 · in the Prototype tab, drag the blue arrow from a button to the next screen — that's a connection."),
+      shot("figma_step4_present.jpg", "figma.com → Prototype settings",
+           "STEP 4 · pick a device for the preview, then press ▶ Present and tap through your flow."),
+    ),
+    flash("That's the whole ladder in one tool: <b>frame → wireframe → mockup → clickable prototype</b>."),
+  ),
   # 9 — screen anatomy
   slide(
     eyebrow("Design basics · visualize it"),
     h2("Anatomy of a screen (wireframe)"),
-    viz_wireframe(),
-    muted("Start every design here — block out nav, headline, call-to-action, image and cards before styling anything."),
+    two(viz_wireframe(), wireframe_legend()),
+    muted("Start every design here — block out these five pieces before styling anything."),
   ),
   # 10 — prototyping
   slide(
