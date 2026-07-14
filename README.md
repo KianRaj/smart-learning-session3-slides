@@ -20,13 +20,13 @@ present the concepts first, then run the hands-on activity.
 | Part | Slides | Content |
 |------|--------|---------|
 | Motivation & objectives | 1–2 | Why visual communication matters; session outcomes |
-| The real tools | 3 | Live screenshots of gamma.app and figma.com — what you'll open today |
+| The real tools | 3 | Live screenshots of gamma.app and figma.com, plus in-app step-by-step screens |
 | The toolkit | 4 | Gamma vs Figma AI — two tools, two jobs |
-| Gamma | 5–6 | How Gamma builds a deck; steal-these prompts |
-| Figma AI | 7 | Where interface design happens (real screenshot) |
-| Design basics | 8–10 | Wireframe → mockup → prototype; screen anatomy; linking flows |
-| Hands-on | 11–12 | Build, refine and export your seminar deck; submission checklist |
-| Wrap-up | 13 | Recap and links |
+| Gamma | 5–8 | How Gamma builds a deck; real in-app step-by-step screenshots; steal-these prompts |
+| Figma AI | 9 | Where interface design happens (real screenshot) |
+| Design basics | 10–12 | Wireframe → mockup → prototype; screen anatomy; linking flows |
+| Hands-on | 13–14 | Build, refine and export your seminar deck; submission checklist |
+| Wrap-up | 15 | Recap and links |
 
 Every concept slide carries a **visualization** (inline SVG diagrams — wireframes,
 mockups, clickable-flow maps) so students can *see* the design process while doing it.

@@ -355,6 +355,31 @@ SLIDES = [
       ("4", "Export", "Share a link, or export to PDF / PowerPoint — docs &amp; webpages too."),
     ], cols=4),
   ),
+  # 6 — inside gamma: steps 1-2 (real UI)
+  slide(
+    eyebrow("Gamma · inside the tool"),
+    h2("Step by step — start to outline"),
+    two(
+      shot("gamma_step_mode.jpg", "gamma.app → Create with AI",
+           "STEP 1 · sign in → Create with AI → pick “Generate” (or paste / import your own notes)."),
+      shot("gamma_step_prompt.jpg", "gamma.app → Generate",
+           "STEP 2 · choose Presentation, set the card count, type your topic → “Generate outline”."),
+    ),
+    muted("Real screens from Gamma (source: Gamma Help Center) — this is exactly what you'll see in the lab."),
+  ),
+  # 7 — inside gamma: steps 3-4 (real UI)
+  slide(
+    eyebrow("Gamma · inside the tool"),
+    h2("Step by step — cards, visuals, done"),
+    two(
+      shot("gamma_step_review.jpg", "gamma.app → review cards",
+           "STEP 3 · review the outline it built, adjust the number of cards → “Continue”."),
+      shot("gamma_step_images.jpg", "gamma.app → image source",
+           "STEP 4 · pick where visuals come from — AI images, web images or illustrations."),
+    ),
+    flash("STEP 5 · select any card → <b>Edit with AI</b> (improve writing, translate, make longer) "
+          "· then <b>Share → Export → PDF / PowerPoint</b>."),
+  ),
   # 6 — gamma prompts
   slide(
     eyebrow("Gamma"),
