@@ -62,6 +62,14 @@ def handoff(title, note, chip):
             f'<div class="big">{title}</div><p class="muted">{note}</p>'
             f'<span class="file">{chip}</span></div>')
 
+def shot(src, url, cap="", crop=False):
+    """A real-website screenshot in a browser frame (image self-hosted in assets/img)."""
+    dots = "".join(f'<i style="background:{c}"></i>' for c in ("#E4572E", "#FFC93C", "#2E9E5B"))
+    cap = f'<div class="cap">{cap}</div>' if cap else ""
+    cls = "imgwrap crop" if crop else "imgwrap"
+    return (f'<div class="shot"><div class="bar">{dots}<span class="url">{url}</span></div>'
+            f'<div class="{cls}"><img src="assets/img/{src}" alt="{url} screenshot"></div>{cap}</div>')
+
 # ---------- viz helpers ----------
 def viz(svg, cap="", legend=None):
     leg = ""
@@ -291,6 +299,7 @@ def viz_taskflow():
 #  SLIDES
 # ============================================================
 SLIDES = [
+  # 1 — title
   slide(
     eyebrow("Smart Learning Series"),
     h1("AI for Presentations<br>&amp; Design"),
@@ -300,55 +309,53 @@ SLIDES = [
          on=["Mode: hands-on lab"]),
     muted("Press → / Space to advance · ← to go back · F for fullscreen"),
   ),
+  # 2 — why + objectives
   slide(
-    eyebrow("Motivation"),
-    h2("Why this matters"),
+    eyebrow("Why &amp; what"),
+    h2("Presenting well is a career skill"),
     two(
       p("<b>Professional communication and visual presentation</b> are core academic "
-        "<i>and</i> industry skills. Your idea is only as good as your ability to "
-        "present it clearly.") +
-      p("The problem: making things <i>look</i> good — layout, spacing, colour, "
-        "consistency — usually eats the time you meant to spend on the content."),
-      flash("AI design tools flip that: they handle the <b>layout and polish</b> so you "
-            "spend your time on the <b>message</b>."),
+        "<i>and</i> industry skills — and layout/polish usually eats the time you meant "
+        "to spend on the message. AI flips that.") +
+      flash("Today: AI handles the <b>layout and polish</b>; you own the <b>message</b>."),
+      tick([
+        "Generate a <b>presentation or report</b> with Gamma.",
+        "Know <b>Figma AI</b> and where interface design happens.",
+        "Tell apart <b>wireframe · mockup · prototype</b>.",
+        "Ship a <b>seminar deck</b> you built and refined yourself.",
+      ]),
     ),
   ),
+  # 3 — the real tools (screenshots)
   slide(
-    eyebrow("Objective"),
-    h2("By the end of this session you can…"),
-    tick([
-      "Generate a <b>high-quality presentation</b> from a prompt using Gamma.",
-      "Produce a clean <b>document or report</b> the same way.",
-      "Understand what <b>Figma AI</b> is and where design happens.",
-      "Tell apart a <b>wireframe, a mockup and a prototype</b> — and sketch one.",
-      "Grasp <b>basic prototyping</b> — linking screens into a clickable flow.",
-      "Ship a <b>seminar presentation</b> you built and refined yourself.",
-    ]),
+    eyebrow("The toolkit · the real thing"),
+    h2("This is what you'll open today"),
+    two(
+      shot("gamma_home.png", "gamma.app", "Gamma — type a topic, get a designed deck.", crop=True),
+      shot("figma_ai.png", "figma.com/ai", "Figma AI — where interfaces get designed."),
+    ),
+    muted("Both are free for students and run in the browser — no install."),
   ),
+  # 4 — two tools, two jobs
   slide(
     eyebrow("The toolkit · visualize it"),
     h2("Two tools, two jobs"),
     viz_compare(),
-    muted("Use Gamma when the output is a deck, doc or page. Reach for Figma when you're designing a screen or an app."),
+    muted("Use Gamma when the output is a deck, doc or page. Reach for Figma when you design a screen or an app."),
   ),
-  # --- Gamma ---
+  # 5 — gamma flow
   slide(
     eyebrow("Gamma · visualize it"),
     h2("How Gamma builds a deck"),
     viz_gamma_flow(),
-    muted("You give the substance (topic + outline); Gamma writes the copy, picks a layout and designs every slide."),
-  ),
-  slide(
-    eyebrow("Gamma"),
-    h2("What Gamma can generate"),
     cards([
       ("1", "From a prompt", "Describe the topic → a full first-draft deck."),
-      ("2", "From your text", "Paste notes or a doc → Gamma structures it into slides."),
-      ("3", "Themes &amp; layouts", "One click restyles the whole deck consistently."),
-      ("4", "Export anywhere", "Share a link, or export to PDF / PowerPoint."),
+      ("2", "From your text", "Paste notes → Gamma structures them into slides."),
+      ("3", "Themes", "One click restyles the whole deck consistently."),
+      ("4", "Export", "Share a link, or export to PDF / PowerPoint — docs &amp; webpages too."),
     ], cols=4),
-    flash("Gamma also makes <b>documents, reports and simple webpages</b> — same prompt-to-polished flow."),
   ),
+  # 6 — gamma prompts
   slide(
     eyebrow("Gamma"),
     h2("Prompts you can steal today"),
@@ -362,136 +369,79 @@ SLIDES = [
       prompt("Restyle this deck with a clean, minimal theme and consistent heading "
              "sizes.", "refine"),
     ),
-    muted("Then edit: Gamma's first draft is a starting point, not the final deck."),
+    flash("Name the <b>audience, task, topic and style</b> — vague prompts give generic decks."),
   ),
+  # 7 — figma intro + screenshot
   slide(
-    eyebrow("Gamma"),
-    h2("Documents &amp; reports, too"),
-    cards([
-      ("use it for", "Project reports", "Structured sections, formal tone, export to PDF."),
-      ("use it for", "One-pagers", "Summaries, proposals, event briefs."),
-      ("use it for", "Webpages", "A shareable page for a club, event or portfolio."),
-    ], cols=3),
-    flash("Same recipe everywhere: <b>describe → generate → refine → export</b>."),
-  ),
-  # --- Figma ---
-  slide(
-    eyebrow("Figma AI"),
+    eyebrow("Figma AI · the real thing"),
     h2("Where interfaces are designed"),
     two(
+      shot("figma_home.png", "figma.com", "Figma — the industry-standard design canvas."),
       tick([
-        "Figma is the <b>industry-standard</b> tool for UI / UX design.",
         "You design <b>screens</b> — apps, websites, dashboards.",
-        "<b>Figma AI</b> can generate a first design, rename layers, and fill in "
-        "placeholder text &amp; images.",
+        "<b>Figma AI</b> drafts a first design, renames layers, fills placeholder content.",
         "Free for students; runs in the browser.",
       ]),
-      flash("Gamma presents your <b>content</b>. Figma is where you design the "
-            "<b>product</b> — the actual screens a user would tap through."),
     ),
+    muted("Gamma presents your content. Figma is where you design the product itself."),
   ),
+  # 8 — fidelity ladder
   slide(
     eyebrow("Design basics · visualize it"),
     h2("Wireframe → Mockup → Prototype"),
     viz_fidelity(),
     muted("Wireframe = where things go · Mockup = how it looks · Prototype = how it behaves."),
   ),
+  # 9 — screen anatomy
   slide(
     eyebrow("Design basics · visualize it"),
     h2("Anatomy of a screen (wireframe)"),
     viz_wireframe(),
     muted("Start every design here — block out nav, headline, call-to-action, image and cards before styling anything."),
   ),
+  # 10 — prototyping
   slide(
     eyebrow("Prototyping · visualize it"),
     h2("Linking screens into a flow"),
     viz_prototype(),
-    p("A <b>prototype</b> connects your screens: tap a card → go to details → submit → "
-      "success. No code — you're wiring up the <i>experience</i> so you can test it and "
-      "show it."),
+    p("A <b>prototype</b> connects your screens: tap a card → details → submit → success. "
+      "No code — you wire up the <i>experience</i> so you can test it and show it."),
   ),
-  # --- skills ---
-  slide(
-    eyebrow("Skill · visualize it"),
-    h2("Prompt it like a designer"),
-    viz_prompt_anatomy(),
-    p("Whether it's Gamma or Figma AI, name the <b>audience, task, topic and style</b>. "
-      "Vague prompts give generic output; specific prompts give usable drafts."),
-  ),
-  slide(
-    eyebrow("Skill · visualize it"),
-    h2("What a slide that lands looks like"),
-    viz_slide_anatomy(),
-    flash("<b>One idea per slide.</b> Big title, a few words, one strong visual. "
-          "If you're reading paragraphs off the screen, cut them."),
-  ),
-  # --- hands-on ---
+  # 11 — hands-on
   slide(
     eyebrow("Hands-on"),
     h2("Activity — build your seminar deck"),
     viz_taskflow(),
-    cards([
-      ("~15 min", "Generate", "Pick a topic; generate a deck with Gamma."),
-      ("~30 min", "Refine", "Theme, trim text, one visual per key slide."),
-      ("~15 min", "Design touch", "Sketch one title-screen mockup in Figma."),
-    ], cols=3),
-  ),
-  slide(
-    eyebrow("Hands-on · Task 1"),
-    h2("Generate your presentation  (Gamma)"),
     two(
       steps([
-        "Go to <code>gamma.app</code> and sign in; choose <b>Presentation</b>.",
-        "Pick a <b>seminar topic</b> from your branch (or one assigned).",
-        "Prompt it: audience + <b>10–12 slides</b> + one idea per slide + a visual on each.",
-        "Let Gamma generate the first draft.",
-        "Pick a clean <b>theme</b> and make heading sizes consistent.",
+        "On <code>gamma.app</code>: generate a <b>10–12 slide</b> deck on your seminar topic "
+        "(audience + one idea per slide + a visual on each).",
+        "Refine: pick a clean <b>theme</b>, trim text to phrases, add title &amp; summary slides.",
+        "In <b>Figma</b>: sketch a wireframe / mockup of your title screen.",
+        "<b>Export as PDF</b> (8–12 slides).",
       ]),
-      flash("📸 Keep a <b>title slide + one content slide</b> screenshot for your "
-            "submission, and grab the <b>share link</b>."),
+      flash("📸 Keep screenshots as you go — title slide, one content slide, and your "
+            "Figma sketch. You'll submit them."),
     ),
   ),
-  slide(
-    eyebrow("Hands-on · Task 2"),
-    h2("Refine, then add a design touch"),
-    two(
-      steps([
-        "Trim every slide to <b>one idea</b> — cut paragraphs to phrases.",
-        "Add or swap a <b>visual</b> (image / chart / icon) on each key slide.",
-        "Add a clear <b>title slide</b> and a <b>summary / thank-you</b> slide.",
-        "In <b>Figma</b>, sketch a simple <b>wireframe or mockup</b> of your title screen.",
-        "<b>Export the deck as PDF</b> (8–12 slides).",
-      ]),
-      flash("Aim for a deck you could actually <b>present</b> — not a wall of text with "
-            "a nice background."),
-    ),
-  ),
+  # 12 — submission + best practice
   slide(
     eyebrow("Deliverable"),
-    h2("What to submit"),
+    h2("What to submit — and the bar to clear"),
     two(
       tick([
         "The <b>Gamma share link</b> to your deck",
         "The deck <b>exported as PDF</b> (8–12 slides)",
-        "Screenshot: your <b>title slide</b>",
-        "Screenshot: one <b>content slide</b>",
-      ]),
-      tick([
-        "One <b>Figma wireframe / mockup</b> of your title screen (screenshot)",
+        "Screenshots: <b>title slide</b> + one <b>content slide</b>",
+        "One <b>Figma wireframe / mockup</b> screenshot",
         "3-line <b>reflection</b>: what AI did well, what you fixed by hand",
       ]),
+      flash("<b>One idea per slide.</b> Strong contrast, consistent fonts, a visual "
+            "beats a paragraph — and never ship placeholder text.<br><br>"
+            "Bundle into one PDF → <b>RollNo_Name_Session3.pdf</b>"),
     ),
-    flash("Bundle everything into one PDF. Filename: <b>RollNo_Name_Session3.pdf</b>"),
   ),
-  slide(
-    eyebrow("Best practice"),
-    h2("Design like it's yours, not the tool's"),
-    two(
-      cards([("do", "Make it clear", "One idea per slide; strong contrast; consistent fonts &amp; spacing; align things to a grid; a visual beats a paragraph.")], cols=1),
-      cards([("don't", "Ship the first draft", "Don't leave placeholder text; don't mix five fonts and colours; don't paste dense paragraphs; don't use an image that adds nothing.")], cols=1),
-    ),
-    flash("<b>AI gives you a fast, decent draft — taste and editing are what make it good.</b>"),
-  ),
+  # 13 — wrap up
   slide(
     handoff("From blank page to polished deck — in one session.",
             "Recap — Gamma for decks, docs &amp; pages · Figma AI for screens · "

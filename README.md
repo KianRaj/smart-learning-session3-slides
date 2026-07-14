@@ -19,14 +19,14 @@ present the concepts first, then run the hands-on activity.
 
 | Part | Slides | Content |
 |------|--------|---------|
-| Motivation & objectives | 1–3 | Why visual communication matters; session outcomes |
-| The tools | 4 | Gamma vs Figma AI — two tools, two jobs |
-| Gamma | 5–8 | Deck generation, documents & reports, steal-these prompts |
-| Figma AI | 9 | Where interface design happens |
-| Design basics | 10–12 | Wireframe → mockup → prototype; screen anatomy; linking flows |
-| Skills | 13–14 | Prompting like a designer; what a good slide looks like |
-| Hands-on | 15–17 | Build, refine and export your seminar presentation |
-| Wrap-up | 18–20 | Best practices, submission checklist |
+| Motivation & objectives | 1–2 | Why visual communication matters; session outcomes |
+| The real tools | 3 | Live screenshots of gamma.app and figma.com — what you'll open today |
+| The toolkit | 4 | Gamma vs Figma AI — two tools, two jobs |
+| Gamma | 5–6 | How Gamma builds a deck; steal-these prompts |
+| Figma AI | 7 | Where interface design happens (real screenshot) |
+| Design basics | 8–10 | Wireframe → mockup → prototype; screen anatomy; linking flows |
+| Hands-on | 11–12 | Build, refine and export your seminar deck; submission checklist |
+| Wrap-up | 13 | Recap and links |
 
 Every concept slide carries a **visualization** (inline SVG diagrams — wireframes,
 mockups, clickable-flow maps) so students can *see* the design process while doing it.
@@ -35,7 +35,7 @@ mockups, clickable-flow maps) so students can *see* the design process while doi
 
 - **Navigate:** `→` / `Space` next · `←` back · `Home` / `End` jump · `F` fullscreen.
 - **Click:** right edge of the slide = next, left edge = back. Touch = swipe.
-- **Deep-link:** `index.html#10` opens slide 10 directly.
+- **Deep-link:** `index.html#8` opens slide 8 directly.
 
 ## The hands-on activity (what students submit)
 
