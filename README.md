@@ -14,7 +14,7 @@ present the concepts first, then run the hands-on activity.
 |---------|-------|-------------|
 | 2 | Smart Learning with Google Gemini & NotebookLM | https://kianraj.github.io/smart-learning-session2-slides/ |
 | 3 | AI for Presentations & Design (Gamma & Figma AI) | https://kianraj.github.io/smart-learning-session3-slides/ |
-| 4 | The Integrated AI Workflow — capstone & assessment | https://kianraj.github.io/smart-learning-session4-slides/ |
+| 5 | The Integrated AI Workflow — capstone & assessment | https://kianraj.github.io/smart-learning-session5-slides/ |
 
 ## What's inside
 
