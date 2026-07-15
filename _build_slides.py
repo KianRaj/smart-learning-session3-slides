@@ -312,7 +312,7 @@ SLIDES = [
   slide(
     eyebrow("Smart Learning Series"),
     h1("AI for Presentations<br>&amp; Design"),
-    lead("Turn an idea into a <mark>polished deck</mark> and a <mark>clean interface</mark> "
+    lead("Type your idea → get a <mark>finished deck</mark> and a <mark>clean app design</mark> "
          "in minutes — with Gamma and Figma AI."),
     tags(["Tools: Gamma + Figma AI", "Mode: hands-on lab", "Deliverable: a seminar deck"],
          on=["Mode: hands-on lab"]),
@@ -334,16 +334,6 @@ SLIDES = [
         "Ship a <b>seminar deck</b> you built and refined yourself.",
       ]),
     ),
-  ),
-  # 3 — the real tools (screenshots)
-  slide(
-    eyebrow("The toolkit · the real thing"),
-    h2("This is what you'll open today"),
-    two(
-      shot("gamma_home.png", "gamma.app", "Gamma — type a topic, get a designed deck.", crop=True),
-      shot("figma_ai.png", "figma.com/ai", "Figma AI — where interfaces get designed."),
-    ),
-    muted("Both are free for students and run in the browser — no install."),
   ),
   # 4 — two tools, two jobs
   slide(
@@ -405,26 +395,12 @@ SLIDES = [
     ),
     flash("Name the <b>audience, task, topic and style</b> — vague prompts give generic decks."),
   ),
-  # 7 — figma intro + screenshot
-  slide(
-    eyebrow("Figma AI · the real thing"),
-    h2("Where interfaces are designed"),
-    two(
-      shot("figma_home.png", "figma.com", "Figma — the industry-standard design canvas."),
-      tick([
-        "You design <b>screens</b> — apps, websites, dashboards.",
-        "<b>Figma AI</b> drafts a first design, renames layers, fills placeholder content.",
-        "Free for students; runs in the browser.",
-      ]),
-    ),
-    muted("Gamma presents your content. Figma is where you design the product itself."),
-  ),
   # 8 — fidelity ladder
   slide(
     eyebrow("Design basics · visualize it"),
     h2("Wireframe → Mockup → Prototype"),
     viz_fidelity(),
-    muted("Wireframe = where things go · Mockup = how it looks · Prototype = how it behaves."),
+    muted("Fidelity just means level of detail. Wireframe = where things go · Mockup = how it looks · Prototype = how it behaves. You do all three in Figma — free for students, runs in the browser."),
   ),
   # — inside figma: steps 1-2 (real UI)
   slide(
@@ -448,7 +424,7 @@ SLIDES = [
       shot("figma_step4_present.jpg", "figma.com → Prototype settings",
            "STEP 4 · pick a device for the preview, then press ▶ Present and tap through your flow."),
     ),
-    flash("That's the whole ladder in one tool: <b>frame → wireframe → mockup → clickable prototype</b>."),
+    flash("A prototype is just screens <b>wired together</b>: tap a button → next screen. That's the whole ladder in one tool: <b>frame → wireframe → mockup → clickable prototype</b>."),
   ),
   # 9 — screen anatomy
   slide(
@@ -456,14 +432,6 @@ SLIDES = [
     h2("Anatomy of a screen (wireframe)"),
     two(viz_wireframe(), wireframe_legend()),
     muted("Start every design here — block out these five pieces before styling anything."),
-  ),
-  # 10 — prototyping
-  slide(
-    eyebrow("Prototyping · visualize it"),
-    h2("Linking screens into a flow"),
-    viz_prototype(),
-    p("A <b>prototype</b> connects your screens: tap a card → details → submit → success. "
-      "No code — you wire up the <i>experience</i> so you can test it and show it."),
   ),
   # 11 — hands-on
   slide(
